@@ -102,5 +102,41 @@ describe('is micro-checking library', function() {
 	  expect(is.date(null)).to.be.false;
     });
   });
+  
+  describe('is.null', function () {
+
+    it('should return true if passed parameter type is null', function () {
+	  expect(is.null(null)).to.be.true;
+    });
+    it("should return false if passed parameter type is not null", function () {
+      expect(is.null('stephane')).to.be.false;
+	  expect(is.null(123)).to.be.false;
+      expect(is.null(true)).to.be.false;
+    });
+  });
+
+ describe('is.number', function () {
+
+    it('should return true if passed parameter type is number', function () {
+	  expect(is.number(123)).to.be.true;
+    });
+    it("should return false if passed parameter type is not number", function () {
+      expect(is.date('stephane')).to.be.false;
+	  expect(is.date(true)).to.be.false;
+	  expect(is.date(null)).to.be.false;
+    });
+  });
+
+ describe('is.object', function () {
+
+    it('should return true if passed parameter type is object', function () {
+	  expect(is.object(new Object())).to.be.true;
+    });
+    it("should return false if passed parameter type is not object", function () {
+	  expect(is.null('stephane')).to.be.false;
+	  expect(is.null(123)).to.be.false;
+      expect(is.null(true)).to.be.false;
+    });
+  });
 
 
