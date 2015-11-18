@@ -24,6 +24,9 @@ describe('is micro-checking library', function() {
     });
     it('should return false if passed argument type is not Array', function () {
       expect(is.array('stephane')).to.be.false;
+	  expect(is.date(123)).to.be.false;
+	  expect(is.date(true)).to.be.false;
+	  expect(is.date(null)).to.be.false;
     });
   });
 
@@ -33,7 +36,58 @@ describe('is micro-checking library', function() {
 	  expect(is.boolean(false)).to.be.true;
     });
 	it("should return false if passed parameter type is not boolean", function () {
-      expect(is.boolean('stephane')).to.be.false;
+       expect(is.boolean('stephane')).to.be.false;
+	   expect(is.boolean(123)).to.be.false;
+	   expect(is.boolean(null)).to.be.false;
     });
   });
 });
+
+  describe('is.date', function () {
+    it('should return true if passed parameter type is date', function () {
+	expect(is.date(new Date(2015-18-11))).to.be.true;
+	
+    });
+	
+	it("should return false if passed parameter type is not date", function () {
+      expect(is.date('stephane')).to.be.false;
+	  expect(is.date(123)).to.be.false;
+	  expect(is.date(true)).to.be.false;
+	  expect(is.date(null)).to.be.false;
+    });
+  });
+});
+
+  describe('is.error', function () {
+
+    it('should return true if passed parameter type is error', function () {
+	
+	expect(is.error(new Error())).to.be.true;
+	
+    });
+	
+    it("should return false if passed parameter type is not error", function () {
+      expect(is.date('stephane')).to.be.false;
+	  expect(is.date(123)).to.be.false;
+	  expect(is.date(true)).to.be.false;
+	  expect(is.date(null)).to.be.false;
+    });
+  });
+  
+  describe('is.function', function () {
+
+    it('should return true if passed parameter type is function', function () {
+	var newfunction = function(){};
+	expect(is.function(newfunction)).to.be.true;
+	
+    });
+	
+    it("should return false if passed parameter type is not function", function () {
+      expect(is.date('stephane')).to.be.false;
+	  expect(is.date(123)).to.be.false;
+	  expect(is.date(true)).to.be.false;
+	  expect(is.date(null)).to.be.false;
+    });
+  });
+
+
