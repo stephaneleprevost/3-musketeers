@@ -1,8 +1,9 @@
-/*eslint-disable*/
+
 var expect = require('chai').expect;
 var is = require('../lib/is/index');
 
 describe('is micro-checking library', function() {
+	
   describe('is.arguments', function () {
     it('should return true if passed parameter type is arguments', function () {
       var getArguments = function () {
@@ -22,13 +23,17 @@ describe('is micro-checking library', function() {
       expect(is.array(['value1', 'value2'])).to.be.true;
     });
     it('should return false if passed argument type is not Array', function () {
-      expect(is.array('yassine')).to.be.false;
+      expect(is.array('stephane')).to.be.false;
     });
   });
 
-  describe('is.whoWillBeLigue1Champion', function () {
-    it('should return PSG in uppercase', function() {
-      expect(is.whoWillBeLigue1Champion()).to.be.equal('PSG');
+  describe('is.boolean', function () {
+    it('should return true if passed parameter type is boolean', function() {
+      expect(is.boolean(true)).to.be.true;
+	  expect(is.boolean(false)).to.be.true;
+    });
+	it("should return false if passed parameter type is not boolean", function () {
+      expect(is.boolean('stephane')).to.be.false;
     });
   });
 });
