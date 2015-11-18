@@ -78,11 +78,24 @@ describe('is micro-checking library', function() {
 
     it('should return true if passed parameter type is function', function () {
 	var newfunction = function(){};
-	expect(is.function(newfunction)).to.be.true;
+	  expect(is.function(newfunction)).to.be.true;
 	
     });
 	
     it("should return false if passed parameter type is not function", function () {
+      expect(is.date('stephane')).to.be.false;
+	  expect(is.date(123)).to.be.false;
+	  expect(is.date(true)).to.be.false;
+	  expect(is.date(null)).to.be.false;
+    });
+  });
+  
+  describe('is.nan', function () {
+
+    it('should return true if passed parameter type is Nan', function () {
+	  expect(is.nan(0/0)).to.be.true;
+    });
+    it("should return false if passed parameter type is not Nan", function () {
       expect(is.date('stephane')).to.be.false;
 	  expect(is.date(123)).to.be.false;
 	  expect(is.date(true)).to.be.false;
